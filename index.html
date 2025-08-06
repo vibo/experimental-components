@@ -1,16 +1,130 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Lit + TS</title>
-    <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/my-element.ts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <my-element>
-      <h1>Vite + Lit</h1>
-    </my-element>
+  <body class="flex flex-col bg-gray-600 h-screen overflow-x-auto">
+    <div class="p-6">
+      <style>
+        naive-panel naive-panel-content {
+          display: none;
+        }
+
+        naive-panel[data-open] naive-panel-content {
+          display: block;
+        }
+
+        naive-panel[data-open] .closed,
+        naive-panel:not([data-open]) .open {
+          display: none;
+        }
+      </style>
+
+      <naive-panel class="bg-white mb-6">
+        <naive-panel-header>
+          <naive-accordion-trigger title="Toggle">
+            <div
+              class="flex items-center gap-2 py-2 px-4 cursor-pointer hover:bg-gray-200 active:bg-gray-300"
+            >
+              <span class="flex-1">My panel</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="closed"
+              >
+                <path d="m18 15-6-6-6 6" />
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="open"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </div>
+          </naive-accordion-trigger>
+        </naive-panel-header>
+
+        <naive-panel-content class="p-4 bg-blue-100">
+          <p>This is the first panel content.</p>
+          <p>The second panel content comes here.</p>
+        </naive-panel-content>
+
+        <naive-panel-footer class="px-4 py-2">
+          <span>Footer</span>
+        </naive-panel-footer>
+      </naive-panel>
+
+      <naive-panel class="bg-white" data-open>
+        <naive-panel-header>
+          <naive-accordion-trigger title="Toggle">
+            <div
+              class="flex items-center gap-2 py-2 px-4 cursor-pointer hover:bg-gray-200 active:bg-gray-300"
+            >
+              <span class="flex-1">Another panel</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="closed"
+              >
+                <path d="m18 15-6-6-6 6" />
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="open"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </div>
+          </naive-accordion-trigger>
+        </naive-panel-header>
+
+        <naive-panel-content class="p-4 bg-blue-100">
+          <p>This is the second panel content.</p>
+          <p>The second - second panel content comes here.</p>
+        </naive-panel-content>
+
+        <naive-panel-footer class="px-4 py-2">
+          <span>Footer</span>
+        </naive-panel-footer>
+      </naive-panel>
+    </div>
+
+    <script type="module" src="/src/library.ts"></script>
   </body>
 </html>
