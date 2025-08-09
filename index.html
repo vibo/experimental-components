@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Test</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -8,6 +9,17 @@
   <body class="flex flex-col bg-gray-600 h-screen overflow-x-auto">
     <div class="p-6">
       <style>
+        naive-panel {
+          padding-top: var(--padding-top, 16px);
+          padding-right: var(--padding-right, 24px);
+          padding-bottom: var(--padding-bottom, 16px);
+          padding-left: var(--padding-left, 24px);
+        }
+
+        .my-test {
+          padding-top: 40px;
+        }
+
         naive-panel naive-panel-content {
           display: none;
         }
@@ -22,11 +34,11 @@
         }
       </style>
 
-      <naive-panel class="bg-white mb-6">
+      <naive-panel data-open class="p-6 my-test">
         <naive-panel-header>
           <naive-accordion-trigger title="Toggle">
             <div
-              class="flex items-center gap-2 py-2 px-4 cursor-pointer hover:bg-gray-200 active:bg-gray-300"
+              class="flex items-center gap-2 cursor-pointer hover:bg-gray-200 active:bg-gray-300"
             >
               <span class="flex-1">My panel</span>
 
@@ -63,15 +75,19 @@
           </naive-accordion-trigger>
         </naive-panel-header>
 
-        <naive-panel-content class="p-4 bg-blue-100">
-          <p>This is the first panel content.</p>
-          <p>The second panel content comes here.</p>
-        </naive-panel-content>
+        <naive-accordion-target>
+          <naive-panel-content>
+            <p>This is the first panel content.</p>
+            <p>The second panel content comes here.</p>
+          </naive-panel-content>
+        </naive-accordion-target>
 
-        <naive-panel-footer class="px-4 py-2">
+        <naive-panel-footer>
           <span>Footer</span>
         </naive-panel-footer>
       </naive-panel>
+
+      <div class="pb-6"></div>
 
       <naive-panel class="bg-white" data-open>
         <naive-panel-header>
@@ -114,10 +130,12 @@
           </naive-accordion-trigger>
         </naive-panel-header>
 
-        <naive-panel-content class="p-4 bg-blue-100">
-          <p>This is the second panel content.</p>
-          <p>The second - second panel content comes here.</p>
-        </naive-panel-content>
+        <naive-accordion-target>
+          <naive-panel-content class="p-4 bg-blue-100">
+            <p>This is the second panel content.</p>
+            <p>The second - second panel content comes here.</p>
+          </naive-panel-content>
+        </naive-accordion-target>
 
         <naive-panel-footer class="px-4 py-2">
           <span>Footer</span>
