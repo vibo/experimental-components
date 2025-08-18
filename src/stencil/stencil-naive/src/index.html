@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/stencil-naive.esm.js"></script>
+    <script nomodule src="/build/stencil-naive.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        background: #333;
+        padding: 40px;
+      }
+
+      @layer base {
+        naive-accordion,
+        naive-accordion-trigger,
+        naive-panel,
+        naive-panel-header,
+        naive-panel-content,
+        naive-panel-footer {
+          display: block;
+        }
+
+        naive-accordion-region {
+          display: none;
+        }
+
+        naive-accordion[data-accordion-open] naive-accordion-region {
+          display: block;
+        }
+
+        naive-accordion-trigger > button {
+          display: block;
+          width: 100%;
+          cursor: pointer;
+          text-align: left;
+
+          outline: none;
+          border: none;
+          margin: 0;
+          padding: 0;
+          appearance: button;
+        }
+
+        naive-panel {
+          --border-radius: 8px;
+          --background: #fff;
+
+          background: var(--background);
+          clip-path: inset(0 0 0 0 round var(--border-radius));
+        }
+
+        naive-panel-header,
+        naive-panel-content,
+        naive-panel-footer {
+          --padding: 12px 16px;
+
+          padding: var(--padding);
+        }
+      }
+    </style>
+
+    <div style="max-width: 648px">
+      <naive-panel class="mb-6">
+        <naive-panel-header class="font-semibold text-lg"> Header </naive-panel-header>
+        <naive-panel-content>Content</naive-panel-content>
+        <naive-panel-footer class="text-gray-600 text-sm">Footer</naive-panel-footer>
+      </naive-panel>
+
+      <naive-panel>
+        <naive-accordion>
+          <naive-accordion-trigger class="bg-gray-200 hover:bg-gray-300 active:bg-gray-400 cursor-pointer">
+            <naive-panel-header class="font-semibold text-lg">Accordion header</naive-panel-header>
+          </naive-accordion-trigger>
+
+          <naive-accordion-region>
+            <naive-panel-content>Content</naive-panel-content>
+          </naive-accordion-region>
+        </naive-accordion>
+      </naive-panel>
+    </div>
+  </body>
+</html>
