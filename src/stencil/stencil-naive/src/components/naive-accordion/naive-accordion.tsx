@@ -11,8 +11,21 @@ export class NaiveAccordion {
   @Prop({ reflect: true, attribute: 'data-accordion-open', mutable: true })
   public open: boolean = false;
 
-  @Watch('open')
-  private onOpenChange() {
+  private _region;
+  private _trigger;
+
+  get _context() {
+    return {
+      open: this.open,
+      regionId: `accordionRegion${_regionId}`,
+      triggerId: `accordionTrigger${_triggerId}`,
+      toggle: () => {
+        this.open = !this.open;
+      },
+    };
+  }
+
+  componentWillRender() {
     if (this._trigger) {
       this._trigger.context = this._context;
     }
@@ -20,27 +33,6 @@ export class NaiveAccordion {
       this._region.context = this._context;
     }
   }
-
-  private _region;
-  private _trigger;
-  private _context = {
-    open: false,
-    regionId: `accordionRegion${_regionId++}`,
-    triggerId: `accordionTrigger${_triggerId++}`,
-    toggle: () => {
-      this.open = !this.open;
-      this._context = {
-        ...this._context,
-        open: this.open,
-      };
-      if (this._trigger) {
-        this._trigger.context = this._context;
-      }
-      if (this._region) {
-        this._region.context = this._context;
-      }
-    },
-  };
 
   @Listen('naive-accordion/trigger')
   registerTrigger(event: CustomEvent<any>) {
