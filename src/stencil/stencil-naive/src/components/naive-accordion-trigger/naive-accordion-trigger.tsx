@@ -10,20 +10,22 @@ export class NaiveAccordionTrigger {
   @Prop() context: any = {};
 
   @Event({
-    eventName: 'naive-accordion/trigger',
+    eventName: 'naive-accordion/register',
     bubbles: true,
     composed: true,
   })
   register: EventEmitter<any>;
 
   componentWillLoad() {
-    this.register.emit(this.el);
+    this.register.emit({
+      type: 'trigger',
+      el: this.el,
+    });
   }
 
   render() {
     return (
       <button type="button" id={this.context.triggerId} aria-expanded={this.context.open ? 'true' : 'false'} aria-controls={this.context.regionId} onClick={this.context.toggle}>
-        {' '}
         <slot />
       </button>
     );

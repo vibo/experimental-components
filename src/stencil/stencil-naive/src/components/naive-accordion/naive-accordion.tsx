@@ -1,4 +1,4 @@
-import { Component, h, Listen, Prop, Watch } from '@stencil/core';
+import { Component, h, Listen, Prop } from '@stencil/core';
 
 let _regionId = 0;
 let _triggerId = 0;
@@ -25,7 +25,7 @@ export class NaiveAccordion {
     };
   }
 
-  componentWillRender() {
+  componentDidRender() {
     if (this._trigger) {
       this._trigger.context = this._context;
     }
@@ -34,16 +34,17 @@ export class NaiveAccordion {
     }
   }
 
-  @Listen('naive-accordion/trigger')
+  @Listen('naive-accordion/register')
   registerTrigger(event: CustomEvent<any>) {
-    this._trigger = event.detail;
-    this._trigger.context = this._context;
-  }
+    event.stopPropagation();
+    const { type, el } = event.detail;
 
-  @Listen('naive-accordion/region')
-  registerRegion(event: CustomEvent<any>) {
-    this._region = event.detail;
-    this._region.context = this._context;
+    el.context = this._context;
+    if (type === 'trigger') {
+      this._trigger = el;
+    } else {
+      this._region = el;
+    }
   }
 
   render() {

@@ -34,6 +34,11 @@
           display: block;
         }
 
+        naive-accordion[data-accordion-open] naive-panel-header {
+          background: rebeccapurple;
+          color: white;
+        }
+
         naive-accordion-trigger > button {
           display: block;
           width: 100%;
@@ -52,6 +57,7 @@
           --background: #fff;
 
           background: var(--background);
+          border-radius: var(--border-radius);
           clip-path: inset(0 0 0 0 round var(--border-radius));
         }
 
@@ -72,7 +78,7 @@
         <naive-panel-footer class="text-gray-600 text-sm">Footer</naive-panel-footer>
       </naive-panel>
 
-      <naive-panel>
+      <naive-panel class="mb-6">
         <naive-accordion>
           <naive-accordion-trigger class="bg-gray-200 hover:bg-gray-300 active:bg-gray-400 cursor-pointer">
             <naive-panel-header class="font-semibold text-lg">Accordion header</naive-panel-header>
@@ -81,6 +87,33 @@
           <naive-accordion-region>
             <naive-panel-content>Content</naive-panel-content>
           </naive-accordion-region>
+        </naive-accordion>
+      </naive-panel>
+
+      <naive-panel>
+        <naive-accordion>
+          <naive-panel-header class="font-semibold text-lg">Many accordions header</naive-panel-header>
+
+          <naive-accordion data-accordion-open>
+            <naive-accordion-trigger class="px-4 py-3 hover:bg-gray-200 active:bg-gray-300 cursor-pointer font-medium border-t-1"> Personal Information </naive-accordion-trigger>
+            <naive-accordion-region class="px-4 py-3">
+              <p>The below example section contains a simple personal information input form divided into 3 sections that demonstrates the Accordion Pattern.</p>
+            </naive-accordion-region>
+          </naive-accordion>
+
+          <naive-accordion>
+            <naive-accordion-trigger class="px-4 py-3 hover:bg-gray-200 active:bg-gray-300 cursor-pointer font-medium border-t-1"> Billing Address </naive-accordion-trigger>
+            <naive-accordion-region class="px-4 py-3">
+              <p>The below example section contains a simple personal information input form divided into 3 sections that demonstrates the Accordion Pattern.</p>
+            </naive-accordion-region>
+          </naive-accordion>
+
+          <naive-accordion>
+            <naive-accordion-trigger class="px-4 py-3 hover:bg-gray-200 active:bg-gray-300 cursor-pointer font-medium border-t-1"> Shipping Address </naive-accordion-trigger>
+            <naive-accordion-region class="px-4 py-3">
+              <p>The below example section contains a simple personal information input form divided into 3 sections that demonstrates the Accordion Pattern.</p>
+            </naive-accordion-region>
+          </naive-accordion>
         </naive-accordion>
       </naive-panel>
     </div>

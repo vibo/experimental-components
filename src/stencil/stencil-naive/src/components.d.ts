@@ -49,7 +49,7 @@ declare global {
         new (): HTMLNaiveAccordionElement;
     };
     interface HTMLNaiveAccordionRegionElementEventMap {
-        "naive-accordion/region": any;
+        "naive-accordion/register": any;
     }
     interface HTMLNaiveAccordionRegionElement extends Components.NaiveAccordionRegion, HTMLStencilElement {
         addEventListener<K extends keyof HTMLNaiveAccordionRegionElementEventMap>(type: K, listener: (this: HTMLNaiveAccordionRegionElement, ev: NaiveAccordionRegionCustomEvent<HTMLNaiveAccordionRegionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -66,7 +66,7 @@ declare global {
         new (): HTMLNaiveAccordionRegionElement;
     };
     interface HTMLNaiveAccordionTriggerElementEventMap {
-        "naive-accordion/trigger": any;
+        "naive-accordion/register": any;
     }
     interface HTMLNaiveAccordionTriggerElement extends Components.NaiveAccordionTrigger, HTMLStencilElement {
         addEventListener<K extends keyof HTMLNaiveAccordionTriggerElementEventMap>(type: K, listener: (this: HTMLNaiveAccordionTriggerElement, ev: NaiveAccordionTriggerCustomEvent<HTMLNaiveAccordionTriggerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -128,14 +128,14 @@ declare namespace LocalJSX {
           * @default {}
          */
         "context"?: any;
-        "onNaive-accordion/region"?: (event: NaiveAccordionRegionCustomEvent<any>) => void;
+        "onNaive-accordion/register"?: (event: NaiveAccordionRegionCustomEvent<any>) => void;
     }
     interface NaiveAccordionTrigger {
         /**
           * @default {}
          */
         "context"?: any;
-        "onNaive-accordion/trigger"?: (event: NaiveAccordionTriggerCustomEvent<any>) => void;
+        "onNaive-accordion/register"?: (event: NaiveAccordionTriggerCustomEvent<any>) => void;
     }
     interface NaivePanel {
     }

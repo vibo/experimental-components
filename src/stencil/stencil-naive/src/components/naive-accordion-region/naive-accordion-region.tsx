@@ -10,18 +10,20 @@ export class NaiveAccordionRegion {
   @Prop() context: any = {};
 
   @Event({
-    eventName: 'naive-accordion/region',
+    eventName: 'naive-accordion/register',
     bubbles: true,
     composed: true,
   })
   register: EventEmitter<any>;
 
   componentWillLoad() {
-    this.register.emit(this.el);
+    this.register.emit({
+      type: 'region',
+      el: this.el,
+    });
   }
 
   render() {
-    console.log('region', this.context);
     return (
       <Host role="region" id={this.context.regionId} aria-labelledby={this.context.triggerId}>
         <slot />
