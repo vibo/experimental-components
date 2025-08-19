@@ -19,6 +19,9 @@
       @layer base {
         naive-accordion,
         naive-accordion-trigger,
+        naive-form-control,
+        naive-input,
+        naive-label,
         naive-panel,
         naive-panel-header,
         naive-panel-content,
@@ -52,8 +55,22 @@
           appearance: button;
         }
 
+        naive-input > input {
+          display: inline-block;
+          border: none;
+          outline: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        naive-input {
+          border: 1px solid #333;
+          padding: 4px 12px;
+          border-radius: 6px;
+        }
+
         naive-panel {
-          --border-radius: 8px;
+          --border-radius: 6px;
           --background: #fff;
 
           background: var(--background);
@@ -90,7 +107,7 @@
         </naive-accordion>
       </naive-panel>
 
-      <naive-panel>
+      <naive-panel class="mb-6">
         <naive-accordion>
           <naive-panel-header class="font-semibold text-lg">Many accordions header</naive-panel-header>
 
@@ -115,6 +132,15 @@
             </naive-accordion-region>
           </naive-accordion>
         </naive-accordion>
+      </naive-panel>
+
+      <naive-panel>
+        <naive-panel-content>
+          <naive-form-control>
+            <naive-label>Name</naive-label>
+            <naive-input></naive-input>
+          </naive-form-control>
+        </naive-panel-content>
       </naive-panel>
     </div>
   </body>

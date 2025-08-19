@@ -24,6 +24,12 @@ export namespace Components {
          */
         "context": any;
     }
+    interface NaiveFormControl {
+    }
+    interface NaiveInput {
+    }
+    interface NaiveLabel {
+    }
     interface NaivePanel {
     }
     interface NaivePanelContent {
@@ -82,6 +88,24 @@ declare global {
         prototype: HTMLNaiveAccordionTriggerElement;
         new (): HTMLNaiveAccordionTriggerElement;
     };
+    interface HTMLNaiveFormControlElement extends Components.NaiveFormControl, HTMLStencilElement {
+    }
+    var HTMLNaiveFormControlElement: {
+        prototype: HTMLNaiveFormControlElement;
+        new (): HTMLNaiveFormControlElement;
+    };
+    interface HTMLNaiveInputElement extends Components.NaiveInput, HTMLStencilElement {
+    }
+    var HTMLNaiveInputElement: {
+        prototype: HTMLNaiveInputElement;
+        new (): HTMLNaiveInputElement;
+    };
+    interface HTMLNaiveLabelElement extends Components.NaiveLabel, HTMLStencilElement {
+    }
+    var HTMLNaiveLabelElement: {
+        prototype: HTMLNaiveLabelElement;
+        new (): HTMLNaiveLabelElement;
+    };
     interface HTMLNaivePanelElement extends Components.NaivePanel, HTMLStencilElement {
     }
     var HTMLNaivePanelElement: {
@@ -110,6 +134,9 @@ declare global {
         "naive-accordion": HTMLNaiveAccordionElement;
         "naive-accordion-region": HTMLNaiveAccordionRegionElement;
         "naive-accordion-trigger": HTMLNaiveAccordionTriggerElement;
+        "naive-form-control": HTMLNaiveFormControlElement;
+        "naive-input": HTMLNaiveInputElement;
+        "naive-label": HTMLNaiveLabelElement;
         "naive-panel": HTMLNaivePanelElement;
         "naive-panel-content": HTMLNaivePanelContentElement;
         "naive-panel-footer": HTMLNaivePanelFooterElement;
@@ -137,6 +164,12 @@ declare namespace LocalJSX {
         "context"?: any;
         "onNaive-accordion/register"?: (event: NaiveAccordionTriggerCustomEvent<any>) => void;
     }
+    interface NaiveFormControl {
+    }
+    interface NaiveInput {
+    }
+    interface NaiveLabel {
+    }
     interface NaivePanel {
     }
     interface NaivePanelContent {
@@ -149,6 +182,9 @@ declare namespace LocalJSX {
         "naive-accordion": NaiveAccordion;
         "naive-accordion-region": NaiveAccordionRegion;
         "naive-accordion-trigger": NaiveAccordionTrigger;
+        "naive-form-control": NaiveFormControl;
+        "naive-input": NaiveInput;
+        "naive-label": NaiveLabel;
         "naive-panel": NaivePanel;
         "naive-panel-content": NaivePanelContent;
         "naive-panel-footer": NaivePanelFooter;
@@ -162,6 +198,9 @@ declare module "@stencil/core" {
             "naive-accordion": LocalJSX.NaiveAccordion & JSXBase.HTMLAttributes<HTMLNaiveAccordionElement>;
             "naive-accordion-region": LocalJSX.NaiveAccordionRegion & JSXBase.HTMLAttributes<HTMLNaiveAccordionRegionElement>;
             "naive-accordion-trigger": LocalJSX.NaiveAccordionTrigger & JSXBase.HTMLAttributes<HTMLNaiveAccordionTriggerElement>;
+            "naive-form-control": LocalJSX.NaiveFormControl & JSXBase.HTMLAttributes<HTMLNaiveFormControlElement>;
+            "naive-input": LocalJSX.NaiveInput & JSXBase.HTMLAttributes<HTMLNaiveInputElement>;
+            "naive-label": LocalJSX.NaiveLabel & JSXBase.HTMLAttributes<HTMLNaiveLabelElement>;
             "naive-panel": LocalJSX.NaivePanel & JSXBase.HTMLAttributes<HTMLNaivePanelElement>;
             "naive-panel-content": LocalJSX.NaivePanelContent & JSXBase.HTMLAttributes<HTMLNaivePanelContentElement>;
             "naive-panel-footer": LocalJSX.NaivePanelFooter & JSXBase.HTMLAttributes<HTMLNaivePanelFooterElement>;
